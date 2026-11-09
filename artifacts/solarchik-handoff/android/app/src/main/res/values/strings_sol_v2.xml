@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sol_mode_title">Mode</string>
+    <string name="sol_mode_body">DEMO — simulated calls, demo balances, zero spend. MAINNET — real calls and payments (only with double «ok»).</string>
+    <string name="sol_mode_demo_on">DEMO enabled</string>
+    <string name="sol_mode_mainnet_title">Enable MAINNET?</string>
+    <string name="sol_mode_mainnet_confirm">Real calls via Zadarma and real Solana payments. Make sure you are ready.</string>
+    <string name="sol_mode_go">OK, MAINNET</string>
+    <string name="sol_mode_mainnet_on">MAINNET enabled</string>
+    <string name="sol_mode_demo_hint">Demo mode: every flow works, nothing is charged.</string>
+    <string name="sol_mode_mainnet_hint">Live mode: calls and payments are real.</string>
+
+    <string name="sol_lines_title">Shared numbers</string>
+    <string name="sol_lines_auto">Selected: %1$s — %2$s</string>
+    <string name="sol_lines_sel">Selected</string>
+    <string name="sol_mode_autodetect" translatable="false">Auto</string>
+    <string name="sol_line_use">Use</string>
+    <string name="sol_line_used">Selected: %1$s</string>
+    <string name="sol_line_fw">Forwarding</string>
+    <string name="sol_line_bad">Could not save the number</string>
+    <string name="sol_line_fw_ok">Forwarding to %1$s</string>
+    <string name="sol_lines_reset">Auto by country</string>
+
+    <string name="sol_out_title">Outbound call</string>
+    <string name="sol_out_body">Sol calls out and reminds the debtor itself. DEMO — local voice, zero spend; MAINNET — real call via Zadarma.</string>
+    <string name="sol_out_to_hint">+380 91 481 0885</string>
+    <string name="sol_out_msg_hint">Reminder: you have a debt on account #1. Thank you!</string>
+    <string name="sol_out_demo">Call (DEMO — zero spend)</string>
+    <string name="sol_out_real">Call (MAINNET — real spend)</string>
+    <string name="sol_out_gate1_title">Real call?</string>
+    <string name="sol_out_gate1_msg">MAINNET: the call will be placed via Zadarma on the shared line — this is a real charge.</string>
+    <string name="sol_out_gate1_ok">I understand, continue</string>
+    <string name="sol_out_gate2_title">Final confirmation</string>
+    <string name="sol_out_gate2_msg">Double «ok»: the number and the message text are correct, the call may go out.</string>
+    <string name="sol_out_working">Calling</string>
+    <string name="sol_out_bad_to">Enter a valid E.164 number</string>
+    <string name="sol_out_bad_msg">Write the reminder text</string>
+    <string name="sol_out_key_hint">Zadarma API key</string>
+    <string name="sol_out_secret_hint">Zadarma API secret</string>
+    <string name="sol_out_savekey">Save keys</string>
+    <string name="sol_out_key_saved">Keys saved</string>
+    <string name="sol_out_keys_toggle">Zadarma keys (MAINNET)</string>
+    <string name="sol_out_keys_hint">Keys stay only on this phone</string>
+
+    <string name="sol_aur_title">Aurora — pay from any chain</string>
+    <string name="sol_aur_body">Funds land on Solana. The first 30 payers get a bonus account.</string>
+    <string name="sol_aur_check">Check status</string>
+    <string name="sol_aur_check_ok">Payment confirmed on-chain — credited</string>
+    <string name="sol_aur_check_unknown">On-chain status not confirmed yet (bridge pending). Try again later.</string>
+    <string name="sol_aur_amount">Amount</string>
+    <string name="sol_aur_link_hint">Payment link (tap to copy):</string>
+    <string name="sol_aur_make">Create payment link</string>
+    <string name="sol_aur_i_paid">I paid</string>
+    <string name="sol_aur_demo_on">Demo link generated</string>
+    <string name="sol_aur_main_on">Real Aurora link generated</string>
+    <string name="sol_aur_demo_paid">Marked «Paid» (demo) — credited</string>
+    <string name="sol_aur_real_wait">Waiting for the real bridge settlement</string>
+    <string name="sol_aur_new">Awaiting payment</string>
+    <string name="sol_aur_paid">Paid</string>
+    <string name="sol_aur_waiting">Waiting for on-chain confirmation — the app does not count this as paid until the chain confirms</string>
+
+    <string name="sol_price_body">Solarchik Pro — subscription, near-free minutes, small transfer fee, USDC payments.</string>
+    <string name="sol_price_pro">Solarchik Pro</string>
+    <string name="sol_price_pro_price">$8.99/mo</string>
+    <string name="sol_price_pro_min">Minutes — almost free</string>
+    <string name="sol_price_pro_fee">Fee 1–2% (DEMO: 1.5%, MAINNET: 1%)</string>
+    <string name="sol_price_pro_usdc">USDC payments</string>
+    <string name="sol_price_activate">Activate Pro (demo)</string>
+    <string name="sol_price_demo_on">Pro activated (demo)</string>
+    <string name="sol_price_real">MAINNET: activation is a real USDC payment, only after top-up</string>
+    <string name="sol_price_reset">Revoke (demo)</string>
+    <string name="sol_price_demo">DEMO</string>
+    <string name="sol_price_main">MAINNET</string>
+    <string name="sol_price_status">Pro status</string>
+    <string name="sol_price_pro_on">Pro active</string>
+    <string name="sol_price_pro_off">Pro off</string>
+    <string name="sol_price_active">Pro active</string>
+    <string name="sol_price_real_btn">Activate Pro (real)</string>
+
+    <string name="sol_copied">Copied</string>
+</resources>

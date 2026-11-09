@@ -1,0 +1,19 @@
+-keep class net.solardepin.solarchik.** { *; }
+-keep class com.solana.mobilewalletadapter.** { *; }
+-keep class kotlinx.coroutines.** { *; }
+-dontwarn com.solana.**
+-dontwarn javax.annotation.**
+-dontwarn kotlinx.coroutines.**
+-keep class org.sol4k.** { *; }
+-dontwarn org.sol4k.**
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn org.bouncycastle.**
+-dontwarn org.conscrypt.**
+-dontwarn org.openjsse.**
+-keepattributes *Annotation*, InnerClasses, Signature
+-keepclassmembers class kotlinx.serialization.json.** { *** Companion; }
+-keepclasseswithmembers class ** { kotlinx.serialization.KSerializer serializer(...); }
+# 1.1.6: MWA clientlib's WebSocket transport (nv-websocket-client); keep it un-obfuscated in release.
+-keep class com.neovisionaries.ws.client.** { *; }
+-dontwarn com.neovisionaries.**

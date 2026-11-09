@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- sol-main-v2: режим DEMO / MAINNET -->
+    <string name="sol_mode_title">Режим</string>
+    <string name="sol_mode_body">DEMO — імітація викликів, демо-баланс, нульове списання. MAINNET — реальні виклики та платежі (тільки після подвійного «ок»).</string>
+    <string name="sol_mode_demo_on">Увімкнено DEMO</string>
+    <string name="sol_mode_mainnet_title">Увімкнути MAINNET?</string>
+    <string name="sol_mode_mainnet_confirm">Реальні виклики через Zadarma та реальні платежі в Solana. Перевірте, що все готово.</string>
+    <string name="sol_mode_go">Гаразд, MAINNET</string>
+    <string name="sol_mode_mainnet_on">Увімкнено MAINNET</string>
+    <string name="sol_mode_demo_hint">Демо-режим: будь-який сценарій працює, нічого не списується.</string>
+    <string name="sol_mode_mainnet_hint">Реальний режим: дзвінки та платежі живі.</string>
+
+    <!-- sol-main-v2: п\'ять спільних номерів -->
+    <string name="sol_lines_title">Спільні номери</string>
+    <string name="sol_lines_auto">Обрано: %1$s — %2$s</string>
+    <string name="sol_lines_sel">Обрано</string>
+    <string name="sol_mode_autodetect" translatable="false">Автовизначення</string>
+    <string name="sol_line_use">Користуватися</string>
+    <string name="sol_line_used">Обрано: %1$s</string>
+    <string name="sol_line_fw">Переадресація</string>
+    <string name="sol_line_bad">Не вдалося зберегти номер</string>
+    <string name="sol_line_fw_ok">Переадресація на %1$s</string>
+    <string name="sol_lines_reset">Автовизначення за країною</string>
+
+    <!-- sol-main-v2: вихідний виклик -->
+    <string name="sol_out_title">Вихідний виклик</string>
+    <string name="sol_out_body">Sol сам дзвонить і нагадує боржнику. DEMO — голос читає текст локально (нульове списання); MAINNET — реальний виклик через Zadarma.</string>
+    <string name="sol_out_to_hint">+380 91 481 0885</string>
+    <string name="sol_out_msg_hint">Нагадування: до вас є борг по рахунку №1. Дякую!</string>
+    <string name="sol_out_demo">Почати дзвінок (DEMO — нульове списання)</string>
+    <string name="sol_out_real">Почати дзвінок (MAINNET — реальне списання)</string>
+    <string name="sol_out_gate1_title">Реальний дзвінок?</string>
+    <string name="sol_out_gate1_msg">MAINNET: виклик виконається через Zadarma на спільний номер — це реальне списання коштів.</string>
+    <string name="sol_out_gate1_ok">Розумію, продовжити</string>
+    <string name="sol_out_gate2_title">Остаточне підтвердження</string>
+    <string name="sol_out_gate2_msg">Подвійне «ок»: номер і текст повідомлення правильні, дзвінок можна виконувати.</string>
+    <string name="sol_out_working">Дзвонимо</string>
+    <string name="sol_out_bad_to">Вкажіть коректний номер E.164</string>
+    <string name="sol_out_bad_msg">Напишіть текст нагадування</string>
+    <string name="sol_out_key_hint">Zadarma API key</string>
+    <string name="sol_out_secret_hint">Zadarma API secret</string>
+    <string name="sol_out_savekey">Зберегти ключі</string>
+    <string name="sol_out_key_saved">Ключі збережено</string>
+    <string name="sol_out_keys_toggle">Ключі Zadarma (MAINNET)</string>
+    <string name="sol_out_keys_hint">Ключі видні лише тобі, на цьому телефоні</string>
+
+    <!-- sol-main-v2: Aurora -->
+    <string name="sol_aur_title">Aurora — сплата з будь-якого блокчейна</string>
+    <string name="sol_aur_body">Кошти приймаються у Solana. Перші 30 платників отримують бонусний рахунок.</string>
+    <string name="sol_aur_check">Перевірити статус</string>
+    <string name="sol_aur_check_ok">Платіж підтверджено в чейні — зараховано</string>
+    <string name="sol_aur_check_unknown">Статус у чейні ще невідомий (мост не підтвердив). Спробуйте пізніше.</string>
+    <string name="sol_aur_amount">Сума</string>
+    <string name="sol_aur_link_hint">Посилання для сплати (тап — скопіювати):</string>
+    <string name="sol_aur_make">Створити посилання для сплати</string>
+    <string name="sol_aur_i_paid">Я оплатив</string>
+    <string name="sol_aur_demo_on">Демо-посилання згенеровано</string>
+    <string name="sol_aur_main_on">Реальне посилання Aurora згенеровано</string>
+    <string name="sol_aur_demo_paid">Позначено «Оплачено» (демо) — кошти зараховано</string>
+    <string name="sol_aur_real_wait">Зачекайте на фактичну сплату через мост</string>
+    <string name="sol_aur_new">Очікує сплати</string>
+    <string name="sol_aur_paid">Оплачено</string>
+    <string name="sol_aur_waiting">Очікуємо підтвердження в мережі — додаток не рахує платіж, поки чейн не підтвердить</string>
+
+    <!-- sol-main-v2: ціни -->
+    <string name="sol_price_body">Solarchik Pro — підписка, хвилини майже безкоштовні, комісія на перекази, платежі в USDC.</string>
+    <string name="sol_price_pro">Solarchik Pro</string>
+    <string name="sol_price_pro_price">$8.99/міс</string>
+    <string name="sol_price_pro_min">Хвилини — майже безкоштовно</string>
+    <string name="sol_price_pro_fee">Комісія 1–2% (DEMO: 1.5%, MAINNET: 1%)</string>
+    <string name="sol_price_pro_usdc">Платежі в USDC</string>
+    <string name="sol_price_activate">Активувати Pro (демо)</string>
+    <string name="sol_price_demo_on">Pro активовано (демо)</string>
+    <string name="sol_price_real">MAINNET: активування — реальний платіж USDC, тільки після поповнення</string>
+    <string name="sol_price_reset">Анулювати (демо)</string>
+    <string name="sol_price_demo">DEMO</string>
+    <string name="sol_price_main">MAINNET</string>
+    <string name="sol_price_status">Статус Pro</string>
+    <string name="sol_price_pro_on">Pro активовано</string>
+    <string name="sol_price_pro_off">Pro вимкнено</string>
+    <string name="sol_price_active">Pro активовано</string>
+    <string name="sol_price_real_btn">Активувати Pro (реальний)</string>
+
+    <!-- спільне -->
+    <string name="sol_copied">Скопійовано</string>
+</resources>

@@ -1,0 +1,78 @@
+# 1.1.7 (10 Oct 2026): /inbox and /call take ?lang=en|uk and return notes in that language (gpt-4o-mini translation, KV note_lang3:<callId>:<lang>, 30 days). Live a04fedd6.. -> dd90bc61-f809-42b1-a891-48417a0851da. Rollback to 1.1.6: npx wrangler rollback 51ca66aa-1ace-48a3-ab27-544e010ab42d --name solarchik-screen
+# 1.1.3 (10 Oct 2026): call cost cap + reminders. Every AI call is wrapped up at CALL_WRAP_SEC (165 s: the secretary says it
+# will pass the message on) and hung up at CALL_MAX_SEC (180 s) by the CallRoom alarms (POST /v1/realtime/calls/{id}/hangup);
+# daily AI call minutes per UTC day: CALL_DAILY_MIN_GLOBAL (30) and CALL_DAILY_MIN_ACCOUNT (20); over the cap a call gets a
+# ~15 s scripted goodbye (CAPPED_CALL_SEC, at most CALL_CAP_MESSAGES = 20 a day, then 486) and is never charged. All optional
+# [vars]/secrets, 0 = that cap off. /call/actions: reminders ("remind her Monday") with a resolved date, up to 3 actions a call.
+# Live 1.1.3: a0236789-4ac4-40cc-984c-74d2bde134f0 (first 1.1.3 deploy fef96561, same code minus a prompt wording tweak). Rollback: npx wrangler rollback 4b18e3ff-4c12-493d-8351-94b251baad18 --name solarchik-screen
+# 1.1.0 (9 Oct 2026): + worker/agent-mint.js (mainnet Metaplex Core agent mints: GET /agent/mint-config, POST /agent/mint-cosign,
+# GET /agent/verify-mint, cluster explicit "mainnet-beta"; Combo stays paid-only server-side) + assistant prompt says mainnet.
+# Game prompt and every other route unchanged. Mint stays 503 MINT_NOT_READY until Vadym creates the collection and sets
+# [vars] MAINNET_COLLECTION / MAINNET_COLLECTION_AUTHORITY and secret COLLECTION_AUTHORITY_SECRET (see scripts/mainnet/README.md).
+# 1.1.0 (second scope, 9 Oct): + worker/assistant-extras.js: POST /sol/briefing (morning voice briefing from the facts the app
+# sends; assistant persona) and POST /call/actions (structured-output extraction of payment/callback/reminder requests from
+# call notes; an address is returned only if literally spoken; nothing is stored). Assistant chat: three agents, no tools.
+# 1.1.0 Season rules watcher: GET /season/rules, POST /season/rules/check, cron 17 */6 * * * (official sources only).
+# Live 1.1.0 version: 4b18e3ff-4c12-493d-8351-94b251baad18 (rules watcher + cron heartbeat + stale-read refresh; rollback: f35c29ee-c567-4f19-8d40-4713f75a5cba; earlier: 6cf8d310, 793c6192 (temporary 5-min cron), 5d1dba81, 587933fa, 81821eb7 rules watcher iterations; f5f3acfd briefing payment direction; earlier 1.1.0 deploys 45fb2e1b, b483888b, a894b28a, 25f25d22, 599c88b7).
+# Rollback: npx wrangler rollback 19d11443-933f-4a90-8171-02ef8b29a3bb --name solarchik-screen
+# 1.0.1 (Solarchik Assistant repo): source = Solar-DePIN-Hub/Solarchik web-fees @ 7d07d3c (deployed as 6fa974bc)
+# + the live 1be24509 change "cache inbox reads, do not burn KV" (readCached for /inbox, /call, /balance, GET /secretary-lang),
+# ported from the deployed bundle (saved on the box in /workspace/worker-live-1be24509/; normalized bundle diff = none)
+# + the assistant persona for /sol/chat (request field app: "assistant"; no field = the game prompt, unchanged).
+# Note: web-fees commits f9b8d3f / 021aaf6 (8 Oct, secretary language lock, live call lines) were never live and are NOT included.
+# Deploy: npx wrangler deploy --config worker/wrangler.screen.toml   Rollback: npx wrangler rollback 1be24509-0c8d-49ce-8912-ed06ccc0cd42 --name solarchik-screen
+# Call secretary Worker (solarchik-screen.davidbell1603.workers.dev). Source recovered from the Grok export
+# (artifacts/solar-depin-worldsfair/app/screen/cf/worker.js), which matches deployed version 744a4bf8
+# (compat date 2026-09-19, KV BALANCES, secret OPENAI_API_KEY). Optional var/secret SOLANA_RPC (mainnet RPC URL).
+# Secrets stay in Cloudflare; never put them here: OPENAI_API_KEY, OPENAI_WEBHOOK_SECRET (enforces /sip signatures),
+# SECRETARY_TOKEN (/expect /voicemail /phone), OWNER_USER_ID (default number +380914810885 -> owner/demo account).
+# Live 241bf359-f4d5-4e84-90df-3a13cd32a153 (2 Oct 2026, ~23:46 Kyiv): robust called-number detection + masked header log, webhook dedup,
+# /secretary-lang, starter credit + TRIAL_DAILY_CAP / TRIAL_CALLER_CAP / TRIAL_SESSIONS (optional vars), demo line budget.
+# Rollback: npx wrangler rollback 71b66276-8aad-4cc8-890c-f2d33a72e1ba --name solarchik-screen (78069545 code + current secrets;
+# older: 58787520, base 744a4bf8).
+# Live 79a77437-e167-4f58-88dc-50905b082e88 (3 Oct 2026, ~00:40 Kyiv, native 0.21.8 job): CallRoom Durable Object (strict
+# once-only incoming calls + realtime sideband transcript -> fallback note), call:<id> markers (a duplicate delivery never
+# charges, refunds or rewrites the inbox), note tool first in the instructions, no company field; /topup RPC fall-through on
+# empty history + GET /rpc-health; Sol routes POST /sol/chat (OpenAI gpt-4.1-mini, streamed NDJSON, propose_action) and
+# GET /sol/tts (gpt-4o-mini-tts, Cloudflare-cached). Includes the owner's 81e336fa edits (app_seen logs, no-company prompts).
+# Rollback: npx wrangler rollback 81e336fa-670a-4e95-b818-e67a1ce609f2 --name solarchik-screen (the DO binding stays
+# deployed but unused by that code; older: 241bf359, 71b66276).
+# Live 75c667e3-57eb-4529-b923-d8e6479ae999: the version that was live when the 0.21.9 job started (not logged here before).
+# Live 79f83fac-12cf-499c-87ad-ecc43801f1b1 (3 Oct 2026, ~02:10 Kyiv, native 0.21.9 job): Calls archive support:
+# canonical call ids (rtc_/live_ twins share one CallRoom, session-only deliveries wait for the rtc_ twin), /inbox
+# drops the failed ghost twin, transcripts kept in KV (transcript:<callId>, 60 days) + durationSec, GET /call
+# (item + transcript, falls back to the old DO lines), GET/POST /block (blocked callers get 486, no charge, inbox
+# status "blocked"), POST /call-claim (demo line routes the next call within 180 s to the claiming player id),
+# Sol prompt copy fixes («ти», no gendered past tense, CLOCK IN = 1200 m + "Підписати сьогодні"), speakable() TTS
+# text (#11 -> "номер 11", no symbols), phone secretary uses polite «ви» consistently with callers.
+# Rollback: npx wrangler rollback 75c667e3-57eb-4529-b923-d8e6479ae999 --name solarchik-screen (pre-0.21.9; the
+# 0.21.9 app then loses /call, /block and /call-claim and shows its offline/empty states). Intermediate 0.21.9
+# deploy without the «ви» change: 41870b78-5c07-4bde-8352-48177bb6fdda.
+# Live 51ca66aa-1ace-48a3-ab27-544e010ab42d (10 Oct 2026, ~04:30 Kyiv, app 1.1.5): call transcript in conversation order
+# (item ids; a late caller transcription no longer lands after the reply), caller transcription language/prompt hint,
+# receptionist script that always takes the message (money: amount, purpose, callback time; never promises a payment),
+# /call/actions reads the call's own transcript and turns a money request without an amount into a follow-up.
+# Rollback: npx wrangler rollback f4dab653-a848-4c92-97f4-dcba47d724bf --name solarchik-screen (1.1.4 code + secrets).
+name = "solarchik-screen"
+main = "solarchik-screen.js"
+compatibility_date = "2026-09-19"
+workers_dev = true
+
+[[kv_namespaces]]
+binding = "BALANCES"
+id = "39853e1695f04f52999da250e215e4e8"
+
+# One Durable Object per call id: strict once-only handling of realtime.call.incoming (OpenAI delivered one call
+# twice, 166 ms apart, on 2 Oct) and the realtime sideband that writes a note from the transcript when the model
+# never called save_call_note. SQLite-backed class (works on the Workers Free plan).
+[[durable_objects.bindings]]
+name = "CALLS"
+class_name = "CallRoom"
+
+[[migrations]]
+tag = "v1-call-room"
+new_sqlite_classes = ["CallRoom"]
+
+# 1.1.0: Season rules watcher re-reads the official Solana Mobile sources every 6 hours (worker/season-rules.js).
+[triggers]
+crons = ["17 */6 * * *"]
